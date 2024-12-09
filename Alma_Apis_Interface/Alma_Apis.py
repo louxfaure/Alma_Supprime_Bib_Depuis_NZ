@@ -146,17 +146,17 @@ class Alma(object):
                                 {'bib_id': bib_id,'holding_id': holding_id},
                                 data=data, content_type='xml', accept='xml')
         return self.extract_content(response)
-#Gestion des erreurs
-class HTTPError(Exception):
+# #Gestion des erreurs
+# class HTTPError(Exception):
 
-    def __init__(self, response, service):
-        super(HTTPError,self).__init__(self.msg(response, service))
+#     def __init__(self, response, service):
+#         super(HTTPError,self).__init__(self.msg(response, service))
 
-    def msg(self, response, service):
-        logger = logging.getLogger(service)
-        msg = "\n  HTTP Status: {}\n  Method: {}\n  URL: {}\n  Response: {}"
-        sujet = service + 'Erreur'
-        message = mail.Mail()
-        message.envoie(os.getenv('ADMIN_MAIL'),os.getenv('ADMIN_MAIL'),sujet, msg.format(response.status_code, response.request.method, response.url, response.text) )
-        logger.error("HTTP Status: {} || Method: {} || URL: {} || Response: {}".format(response.status_code, response.request.method,
-                          response.url, response.text))
+#     def msg(self, response, service):
+#         logger = logging.getLogger(service)
+#         msg = "\n  HTTP Status: {}\n  Method: {}\n  URL: {}\n  Response: {}"
+#         sujet = service + 'Erreur'
+#         message = mail.Mail()
+#         message.envoie(os.getenv('ADMIN_MAIL'),os.getenv('ADMIN_MAIL'),sujet, msg.format(response.status_code, response.request.method, response.url, response.text) )
+#         logger.error("HTTP Status: {} || Method: {} || URL: {} || Response: {}".format(response.status_code, response.request.method,
+#                           response.url, response.text))
