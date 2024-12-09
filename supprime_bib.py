@@ -5,11 +5,9 @@ import json
 import re
 # import requests
 from datetime import datetime, timedelta
-import time
 import logging
 
 #Modules maison
-from mail import mail
 from logs import logs
 
 from Alma_Apis_Interface import Alma_Apis
