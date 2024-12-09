@@ -4,8 +4,8 @@ import requests
 import json
 import logging
 # internal import
-from mail import mail
-from logs import logs
+# from mail import mail
+# from logs import logs
 
 
 __version__ = '0.1.0'
