@@ -65,7 +65,7 @@ def get_job(job_id,instance_id):
     statut = detail_service['status']['value']
     log_module.debug("[get_job (Job ({}) Instance ({}))] Statut ({})".format(job_id,instance_id, statut))
     
-    if statut == 'COMPLETED_SUCCESS':
+    if statut in ['COMPLETED_SUCCESS','COMPLETED_FAILED'] :
         log_module.debug(json.dumps(detail_service, indent=4, sort_keys=True))
         log_module.info('[number_of_set_members] {} notices sans inventaire dans le réseau'.format(detail_service['counter'][1]['value']))
         return detail_service['counter'][0]['value']
